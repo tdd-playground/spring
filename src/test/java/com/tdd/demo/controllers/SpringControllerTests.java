@@ -13,9 +13,13 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
@@ -117,5 +121,25 @@ public class SpringControllerTests {
         mockMvc.perform((get("/foo/item-service")).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ id: 123, name:\"Some Item\" }"));
+    }
+
+    @Test
+    public void getAllItemsFromRepository_callToGetAllItemsFromRespository_returnAllItems() throws Exception {
+        List<Item> listToReturn = Arrays.asList(
+                new Item(1, "Some Item 1"),
+                new Item(2, "Some Item 2")
+        );
+        when(itemBusinessService.getItemsFromRepository()).thenReturn(listToReturn);
+
+        mockMvc.perform(get("/foo/items").accept(MediaType.APPLICATION_JSON).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("[{\"id\":1,\"name\":\"Some Item 1\",\"value\":0},{\"id\":2,\"name\":\"Some Item 2\",\"value\":0}]"));
+    }
+
+    @Test
+    public void samplePostService_postSomeData_printsDataToStandardOut() throws Exception {
+        mockMvc.perform(post("/foo/item-update").contentType(MediaType.APPLICATION_JSON).content("{ \"id\": \"1\"}"))
+        .andExpect(status().is2xxSuccessful())
+        .andReturn(); // Return the result of the executed request for direct access to the results.
     }
 }

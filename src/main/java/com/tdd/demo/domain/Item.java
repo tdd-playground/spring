@@ -14,6 +14,10 @@ public class Item {
     @Transient // Don't add to database
     private int value;
 
+    // JPA provider has to instantiate your domain object dynamically.
+    // It cannot do so, unless there is a no-arg constructor
+    protected Item(){} // default constructor required by JPA provider
+
     public Item(int id, String name){
         this.id = id;
         this.name = name;
