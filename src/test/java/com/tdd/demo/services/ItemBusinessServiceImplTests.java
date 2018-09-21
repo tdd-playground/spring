@@ -11,6 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -34,5 +35,14 @@ public class ItemBusinessServiceImplTests {
 
         List<Item> itemsFromRepository = itemBusinessService.getItemsFromRepository();
         assertEquals(itemsFromRepository, listToReturn);
+
+        // Playing with AssertJ conditions
+        Item doesNotContain = new Item(1, "Don't contain me");
+        assertThat(itemsFromRepository)
+                .hasSize(2)
+                .contains(listToReturn.get(0))
+                .contains(listToReturn.get(1))
+                .allMatch(value -> value.getName().length() > 0)
+                .doesNotContain(doesNotContain);
     }
 }
