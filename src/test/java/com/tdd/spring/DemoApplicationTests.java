@@ -1,7 +1,7 @@
-package com.tdd.demo;
+package com.tdd.spring;
 
-import com.tdd.demo.domain.Item;
-import com.tdd.demo.repositories.ItemRepository;
+import com.tdd.spring.domain.Item;
+import com.tdd.spring.repositories.ItemRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 

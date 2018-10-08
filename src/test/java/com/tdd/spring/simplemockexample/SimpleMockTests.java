@@ -1,4 +1,4 @@
-package com.tdd.demo.simplemockexample;
+package com.tdd.spring.simplemockexample;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class SimpleMockTests {
     @Mock // Will create a mock implementation of the dependency
-    SomeDependency someDependency; // You can create a mock against the interface
+            SomeDependency someDependency; // You can create a mock against the interface
 
     @Spy
     SomeClassToSpyOnImpl someClassToSpyOn; // Note that spies should be used on the implementation, not the interface

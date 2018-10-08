@@ -1,6 +1,5 @@
-package com.tdd.demo.controllers;
+package com.tdd.spring.controllers;
 
-import com.tdd.demo.domain.Item;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -8,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
 
 
 // Launches entire Spring Boot application with SpringBootTest, and in-memory database

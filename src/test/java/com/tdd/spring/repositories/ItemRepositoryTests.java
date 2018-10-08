@@ -1,6 +1,6 @@
-package com.tdd.demo.repositories;
+package com.tdd.spring.repositories;
 
-import com.tdd.demo.domain.Item;
+import com.tdd.spring.domain.Item;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.tdd.demo.simplemockexample;
+package com.tdd.spring.simplemockexample;
 
 public class SomeDependencyImpl implements SomeDependency {
 

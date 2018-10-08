@@ -1,6 +1,6 @@
-package com.tdd.demo.repositories;
+package com.tdd.spring.repositories;
 
-import com.tdd.demo.domain.Item;
+import com.tdd.spring.domain.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ItemRepository extends JpaRepository<Item, Integer> {

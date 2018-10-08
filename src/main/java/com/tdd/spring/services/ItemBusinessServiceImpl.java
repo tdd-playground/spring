@@ -1,7 +1,7 @@
-package com.tdd.demo.services;
+package com.tdd.spring.services;
 
-import com.tdd.demo.domain.Item;
-import com.tdd.demo.repositories.ItemRepository;
+import com.tdd.spring.domain.Item;
+import com.tdd.spring.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

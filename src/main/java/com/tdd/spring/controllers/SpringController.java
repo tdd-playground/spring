@@ -1,7 +1,7 @@
-package com.tdd.demo.controllers;
+package com.tdd.spring.controllers;
 
-import com.tdd.demo.domain.Item;
-import com.tdd.demo.services.ItemBusinessService;
+import com.tdd.spring.domain.Item;
+import com.tdd.spring.services.ItemBusinessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

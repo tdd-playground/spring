@@ -1,7 +1,7 @@
-package com.tdd.demo.services;
+package com.tdd.spring.services;
 
-import com.tdd.demo.domain.Item;
-import com.tdd.demo.repositories.ItemRepository;
+import com.tdd.spring.domain.Item;
+import com.tdd.spring.repositories.ItemRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

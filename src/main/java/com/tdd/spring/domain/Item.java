@@ -1,4 +1,4 @@
-package com.tdd.demo.domain;
+package com.tdd.spring.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

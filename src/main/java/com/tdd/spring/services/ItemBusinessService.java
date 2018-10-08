@@ -1,6 +1,6 @@
-package com.tdd.demo.services;
+package com.tdd.spring.services;
 
-import com.tdd.demo.domain.Item;
+import com.tdd.spring.domain.Item;
 
 import java.util.List;
 
