@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
 public class Java8StreamsTests {
-
     @Test
     public void toUpperCase_takesLowerCaseString_returnsAnUpperCaseString() {
         String output = Java8Streams.toUpperCase("abcdef");
@@ -97,6 +97,30 @@ public class Java8StreamsTests {
     // and preceded by the letter 'o' if the number is odd. For example, if the input list is (3,44), the output should be 'o3,e44'.
 
 
+    // Write a method which returns a sublist of a list of Strings and then returns them as a single string.
+
 
     // http://code-exercises.com/programming/medium/22/comma-separated-java-8-lambdas-and-streams
+
+
+    // Given a list of numbers, how would you return a list of the square of each number? For example, given [1, 2, 3, 4, 5] you should return [1, 4, 9, 16, 25].
+    @Test
+    public void squareNumbers_passListOfNumbers_returnListSquareOfNumbers() {
+        List<Integer> output = Java8Streams.squareNumbers(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5)));
+        assertThat(output).isEqualTo(new ArrayList<>(Arrays.asList(1, 4, 9, 16, 25)));
+    }
+
+    // Given two lists of numbers, how would you return all pairs of numbers? For example, given a list [1, 2, 3] and a list [3, 4] you should return [(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)]. For simplicity, you can represent a pair as an array with two elements.
+    @Test
+    public void pairNumbers_passTwoListsNumbers_returnListOfPairs() {
+        List<int[]> output = Java8Streams.pairNumbers(new ArrayList<>(Arrays.asList(1, 2, 3)), new ArrayList<>(Arrays.asList(3, 4)));
+        assertThat(output).containsExactly(new int[]{1, 3}, new int[]{1, 4}, new int[]{2, 3}, new int[]{2, 4}, new int[]{3, 3}, new int[]{3, 4});
+    }
+
+    // How would you extend the previous example to return only pairs whose sum is divisible by 3? For example, (2, 4) and (3, 3) are valid.
+    @Test
+    public void pairNumbersDivisibleBy3_passTwoListsNumbers_returnListsOfPairs() {
+        List<int[]> output = Java8Streams.pairNumbersDivisibleBy3(new ArrayList<>(Arrays.asList(1, 2, 3)), new ArrayList<>(Arrays.asList(3, 4)));
+        assertThat(output).containsExactly(new int[]{2, 4}, new int[]{3, 3});
+    }
 }

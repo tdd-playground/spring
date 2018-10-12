@@ -1,26 +1,30 @@
 package com.tdd.java;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static java.util.stream.Collectors.toList;
+
 public class Java8Streams {
 
-    public static String toUpperCase(String input){
+    public static String toUpperCase(String input) {
         return input.chars()
                 .map(Character::toUpperCase)
-                .mapToObj(c -> Character.toString((char)c))
+                .mapToObj(c -> Character.toString((char) c))
                 .collect(Collectors.joining());
     }
 
     public static String getUpperCaseOnly(String input) {
         return input.chars()
                 .filter(Character::isUpperCase)
-                .mapToObj(c -> Character.toString((char)c)) // Convert to String
+                .mapToObj(c -> Character.toString((char) c)) // Convert to String
                 .collect(Collectors.joining());
     }
 
-    public static long countOddNumbers(int ... input) {
+    public static long countOddNumbers(int... input) {
         IntStream.of(input)
                 .filter(i -> (i % 2) != 0)
                 .peek(System.out::println);
@@ -39,16 +43,16 @@ public class Java8Streams {
 
         OptionalInt optionalInt = //asList.stream()
                 IntStream.range(0, asList.size())
-                //.flatMapToInt(num -> IntStream.of(Integer.valueOf(num)))
-                .filter(index -> i == asList.get(index))
-                .findFirst();
+                        //.flatMapToInt(num -> IntStream.of(Integer.valueOf(num)))
+                        .filter(index -> i == asList.get(index))
+                        .findFirst();
         return optionalInt.orElse(-1);
     }
 
     public static String reverseString(String input) {
         StringBuilder sb = new StringBuilder();
         input.chars()
-                .forEach(c -> sb.insert(0, (char)c));
+                .forEach(c -> sb.insert(0, (char) c));
         return sb.toString();
     }
 
@@ -60,5 +64,28 @@ public class Java8Streams {
         return IntStream.range(0, number)
                 .filter(n -> (n % 3 == 0) || (n % 5 == 0))
                 .sum();
+    }
+
+    public static List<Integer> squareNumbers(ArrayList<Integer> integers) {
+        return integers.stream()
+                .map(x -> x * x)
+                .collect(toList());
+    }
+
+    public static List<int[]> pairNumbers(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+        return list1.stream()
+                .flatMap(i -> list2.stream()
+                        .map(j -> new int[]{i, j})
+                )
+                .collect(toList());
+    }
+
+    public static List<int[]> pairNumbersDivisibleBy3(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+        return list1.stream()
+                .flatMap(i -> list2.stream()
+                        .filter(j -> (i + j) % 3 == 0)
+                        .map(j -> new int[]{i, j})
+                )
+                .collect(toList());
     }
 }
